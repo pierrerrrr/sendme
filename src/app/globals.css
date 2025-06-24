@@ -4,11 +4,15 @@
 
 @layer {
   :root {
-    --background: 0 0% 100%;
+    --white-pure: 0 0% 100%;
+    --white-light-gray: 0 0% 98%;
+    --white-medium-gray: 0 0% 95%;
+
+    --background: var(--white-light-gray);
     --foreground: 0 0% 8.6%;
-    --card: 0 0% 100%;
+    --card: var(--white-pure);
     --card-foreground: 0 0% 8.6%;
-    --popover: 0 0% 100%;
+    --popover: var(--white-pure);
     --popover-foreground: 0 0% 8.6%;
     --primary: 220 90% 47.6%;
     --primary-foreground: 0 0% 98%;
@@ -37,19 +41,27 @@
     --sidebar-accent-foreground: 0 0% 8.6%;
     --sidebar-border: 240 10% 93%;
     --sidebar-ring: 217 9.1% 92.8% 89.8%;
-    --page-background: #fff;
+    --page-background: white;
     --scrollbar-track: transparent;
     --scrollbar-thumb: #564684;
     --scrollbar-thumb-hover: #5c6c8f;
     --scrollbar-width: 12px;
+
+    --black-pure: 0 0% 0%;
+    --black-medium: 0 0% 8.6%;
+    --black-light: 0 0% 9.0%;
   }
 
   .dark {
-    --background: 0 0% 0%;
+    --black-pure: 0 0% 0%;
+    --black-medium: 0 0% 8.6%;
+    --black-light: 0 0% 9.0%;
+
+    --background: var(--black-medium);
     --foreground: 0 0% 98%;
-    --card: 0 0% 8.6%;
+    --card: 0 0% 12%;
     --card-foreground: 0 0% 98%;
-    --popover: 0 0% 8.6%;
+    --popover: 0 0% 12%;
     --popover-foreground: 0 0% 98%;
     --primary: 220 90% 47.6%;
     --primary-foreground: 0 0% 98%;
@@ -87,6 +99,24 @@
 
   body {
     @apply bg-background text-foreground;
+    background-image: radial-gradient(
+      ellipse at center,
+      hsl(var(--white-pure)) 0%,
+      hsl(var(--white-light-gray)) 50%,
+      hsl(var(--white-medium-gray)) 100%
+    );
+    background-attachment: fixed;
+    transition: background-image 0.5s ease-in-out;
+  }
+
+  html[class='dark'] body {
+    background-image: radial-gradient(
+      ellipse at center,
+      hsl(var(--black-light)) 0%,
+      hsl(var(--black-medium)) 50%,
+      hsl(var(--black-pure)) 100%
+    );
+    background-attachment: fixed;
   }
 }
 
@@ -119,42 +149,51 @@
 }
 
 .radial-gradient {
-  background-image: radial-gradient(ellipse farthest-side,
-      rgba(12, 75, 231, 0.15) 20%,
-      #161616 100%);
+  background-image: radial-gradient(
+    ellipse farthest-side,
+    rgba(12, 75, 231, 0.15) 20%,
+    #161616 100%
+  );
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 .radial-gradient--pink {
-  background-image: radial-gradient(at center,
-      rgba(148, 52, 230, 0.1) 10%,
-      transparent 50%);
+  background-image: radial-gradient(
+    at center,
+    rgba(148, 52, 230, 0.1) 10%,
+    transparent 50%
+  );
   background-size: 70% 80%;
   background-repeat: no-repeat;
 }
 
 .radial-gradient--automations {
-  background-image: radial-gradient(at top left,
-      rgba(12, 75, 231, 0.05) 40%,
-      #161616 60%);
+  background-image: radial-gradient(
+    at top left,
+    rgba(12, 75, 231, 0.05) 40%,
+    #161616 60%
+  );
   background-size: 40% 100%;
   background-repeat: no-repeat;
 }
 
 .radial-double-gradient--cards--top {
-  background-image: radial-gradient(at top left,
-      rgba(12, 75, 231, 0.3) 50%,
-      transparent 70%);
+  background-image: radial-gradient(
+    at top left,
+    rgba(12, 75, 231, 0.3) 50%,
+    transparent 70%
+  );
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 
 .radial-double-gradient--cards--bottom {
-  background-image: radial-gradient(at bottom right,
-      rgba(12, 75, 231, 0.1) 50%,
-      /* rgba do Blue Ribbon */
-      transparent 70%);
+  background-image: radial-gradient(
+    at bottom right,
+    rgba(12, 75, 231, 0.1) 50%,
+    transparent 70%
+  );
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }

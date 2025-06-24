@@ -1,14 +1,17 @@
+'use client';
+
 import FeaturesSection from "@/components/features";
+import FooterSection from "@/components/footer";
 import HeroSection from "@/components/hero-section";
 import Pricing from "@/components/pricing";
-import Image from "next/image";
 
 export default function Home() {
   return (
-    <section>
+    <section className="min-h-screen text-foreground">
       <HeroSection />
       <Pricing />
       <FeaturesSection />
+      <FooterSection />
     </section>
   );
 }
