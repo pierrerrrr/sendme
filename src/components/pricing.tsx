@@ -64,7 +64,7 @@ export default function Pricing() {
                             <hr className="border-dashed border-border" />
 
                             <ul className="list-outside space-y-3 text-sm">
-                                {['Everything in Free Plan', '5GB Cloud Storage', 'Email and Chat Support', 'Access to Community Forum', 'Single User Access', 'Access to Basic Templates', 'Mobile App Access', '1 Custom Report Per Month', 'Monthly Product Updates', 'Standard Security Features'].map((item, index) => (
+                                {['Everything in Free Plan', '5GB Cloud Storage', 'Email and Chat Support', 'Access to Community Forum', 'Single User Access', 'Access to Basic Templates'].map((item, index) => (
                                     <li
                                         key={index}
                                         className="flex items-center gap-2 text-foreground">
