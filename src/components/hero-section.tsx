@@ -112,7 +112,7 @@ export default function HeroSection() {
                                     speedSegment={0.3}
                                     delay={0.5}
                                     as="p"
-                                    className="mx-auto mt-8 max-w-2xl text-balance text-lg">
+                                    className="mx-auto mt-8 max-w-5xl text-balance text-lg">
                                     senDMe is your go-to platform for automating Instagram messages, ensuring you never miss a connection with your audience. With features like DM automation and direct product linking, engaging with followers has never been easier.
                                 </TextEffect>
 

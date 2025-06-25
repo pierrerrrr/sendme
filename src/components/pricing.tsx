@@ -68,14 +68,7 @@ export default function Pricing() {
 
                 <div className="mt-8 grid gap-6 md:mt-20 md:grid-cols-3">
 
-                    <Card ref={el => (cardRefs.current[0] = el)} className="
-                        flex flex-col items-center text-center p-6 rounded-xl opacity-0
-                        bg-black/20
-                        backdrop-blur-lg
-                        text-card-foreground
-                        border-border/50
-                        shadow-card-dark-subtle dark:shadow-card-dark-lg
-                    ">
+                    <Card ref={el => (cardRefs.current[0] = el)} className="flex flex-col items-center text-center p-6 rounded-xl opacity-0 card dark:bg-black/20 backdrop-blur-lg text-card-foreground border-border/50 shadow-card-dark-subtle dark:shadow-card-dark-lg">
                         <CardHeader className="pb-3">
                             <CardTitle className="font-bold text-3xl mb-2">Free</CardTitle>
                             <span className="my-3 block text-5xl font-extrabold">R$0,00<span className="text-2xl font-semibold">/mo</span></span>
@@ -102,15 +95,7 @@ export default function Pricing() {
                         </CardContent>
                     </Card>
 
-                    <Card ref={el => (cardRefs.current[1] = el)} className="
-                        relative
-                        flex flex-col items-center text-center p-6 rounded-xl opacity-0
-                        bg-black/20
-                        backdrop-blur-lg
-                        text-card-foreground
-                        border-4 border-primary
-                        shadow-card-dark-lg
-                    ">
+                    <Card ref={el => (cardRefs.current[1] = el)} className="relative flex flex-col items-center text-center p-6 rounded-xl opacity-0 card dark:bg-black/20 backdrop-blur-lg text-card-foreground border-4 border-primary shadow-card-dark-lg">
                         <CardHeader className="pb-3">
                             <CardTitle className="font-bold text-3xl mb-2">Pro</CardTitle>
                             <span className="my-3 block text-5xl font-extrabold">R$100,00<span className="text-2xl font-semibold">/mo</span></span>
@@ -137,14 +122,7 @@ export default function Pricing() {
                         </CardContent>
                     </Card>
 
-                    <Card ref={el => (cardRefs.current[2] = el)} className="
-                        flex flex-col items-center text-center p-6 rounded-xl opacity-0
-                        bg-black/20
-                        backdrop-blur-lg
-                        text-card-foreground
-                        border-border/50
-                        shadow-card-dark-subtle dark:shadow-card-dark-lg
-                    ">
+                    <Card ref={el => (cardRefs.current[2] = el)} className="flex flex-col items-center text-center p-6 rounded-xl opacity-0 card dark:bg-black/20 backdrop-blur-lg text-card-foreground border-border/50 shadow-card-dark-subtle dark:shadow-card-dark-lg">
                         <CardHeader className="pb-3">
                             <CardTitle className="font-bold text-3xl mb-2">Smart AI</CardTitle>
                             <span className="my-3 block text-5xl font-extrabold">R$149,99<span className="text-2xl font-semibold">/mo</span></span>
