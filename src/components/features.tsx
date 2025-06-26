@@ -8,24 +8,24 @@ export default function FeaturesSection() {
                 <div className="grid items-center gap-12 md:grid-cols-2 md:gap-12 lg:grid-cols-5 lg:gap-24">
                     <div className="lg:col-span-2">
                         <div className="md:pr-6 lg:pr-0">
-                            <h2 className="text-6xl font-semibold">Built for Scaling your sales</h2>
+                            <h2 className="text-6xl font-semibold">Built for scaling your sales</h2>
                             <p className="mt-6">Orrupti aut temporibus assumenda atque ab, accusamus sit, molestiae veniam laboriosam pariatur.</p>
                         </div>
                         <ul className="mt-8 divide-y border-y *:flex *:items-center *:gap-3 *:py-3">
                             <li>
-                                <Mail className="size-5" />
+                                <Mail className="size-5 text-primary" />
                                 Email and web support
                             </li>
                             <li>
-                                <Zap className="size-5" />
+                                <Zap className="size-5 text-primary" />
                                 Fast response time
                             </li>
                             <li>
-                                <Activity className="size-5" />
+                                <Activity className="size-5 text-primary" />
                                 Menitoring and analytics
                             </li>
                             <li>
-                                <DraftingCompass className="size-5" />
+                                <DraftingCompass className="size-5 text-primary" />
                                 Architectural review
                             </li>
                         </ul>

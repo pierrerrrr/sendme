@@ -103,8 +103,8 @@ export default function HeroSection() {
                                     preset="fade-in-blur"
                                     speedSegment={0.3}
                                     as="h1"
-                                    className="mt-8 text-balance font-bold text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem]">
-                                    Automate Your Instagram Messaging with senDMe
+                                    className="mt-8 text-balance font-semibold text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem]">
+                                    Automate your Instagram messaging with senDMe
                                 </TextEffect>
                                 <TextEffect
                                     per="line"
@@ -130,8 +130,7 @@ export default function HeroSection() {
                                     }}
                                     className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row">
                                     <div
-                                        key={1}
-                                        className="bg-foreground/10 rounded-[calc(var(--radius-xl)+0.125rem)] border p-0.5">
+                                        key={1}>
                                         <Button
                                             asChild
                                             size="lg"
@@ -146,7 +145,7 @@ export default function HeroSection() {
                                         asChild
                                         size="lg"
                                         variant="ghost"
-                                        className="h-10.5 rounded-xl">
+                                        className="rounded-xl">
                                         <Link href="#link">
                                             <span className="text-nowrap">Our work</span>
                                         </Link>

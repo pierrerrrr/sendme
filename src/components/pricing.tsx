@@ -62,7 +62,7 @@ export default function Pricing() {
         <section ref={sectionRef} className="py-16 md:py-32 text-foreground overflow-hidden">
             <div className="mx-auto max-w-6xl px-6">
                 <div className="mx-auto max-w-2xl space-y-6 text-center">
-                    <h1 ref={titleRef} className="text-center text-4xl font-semibold opacity-0">Pricing that Scales with You</h1>
+                    <h1 ref={titleRef} className="text-center text-4xl font-semibold opacity-0">Pricing that scales with you</h1>
                     <p ref={descriptionRef} className="text-muted-foreground opacity-0">Gemini is evolving to be more than just the models. It supports an entire to the APIs and platforms helping developers and businesses innovate.</p>
                 </div>
 
