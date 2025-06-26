@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs'
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/providers/theme-provider";
+import { Toaster } from "sonner";
 
 
 const sora = Sora({ subsets: ["latin"] });
@@ -17,20 +26,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
+    <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <head />
         <body className={sora.className}>
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
           >
             {children}
+            <Toaster />
           </ThemeProvider>
         </body>
       </html>
-    </>
+    </ClerkProvider>
   )
 }
