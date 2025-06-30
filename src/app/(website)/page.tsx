@@ -1,5 +1,6 @@
 'use client';
 
+import Cta from "@/components/cta";
 import FeaturesSection from "@/components/features";
 import FooterSection from "@/components/footer";
 import HeroSection from "@/components/hero-section";
@@ -11,6 +12,7 @@ export default function Home() {
       <HeroSection />
       <Pricing />
       <FeaturesSection />
+      {/* <Cta /> */}
       <FooterSection />
     </section>
   );

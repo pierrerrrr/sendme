@@ -15,13 +15,15 @@ datasource db {
 }
 
 model User {
-  id           String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid // gera automaticamente um UUID no banco de dados
-  clerkid      String         @unique
-  email        String         @unique
-  firstname    String?        @unique
-  lastname     String?        @unique
-  createdAt    DateTime       @default(now())
-  Subscription Subscription?
+  id           String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid // gera automaticamente um UUID no banco de dados
+  clerkid      String        @unique
+  email        String        @unique
+  firstname    String?       @unique
+  lastname     String?       @unique
+  createdAt    DateTime      @default(now())
+  subscription Subscription?
+  integrations Integration[]
+  automation   Automation[]
 }
 
 model Subscription {
@@ -30,6 +32,43 @@ model Subscription {
   userId String? @unique @db.Uuid
 }
 
-// model Automations {
+model Integration {
+  id          String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name        INTEGRATIONS @default(INSTAGRAM)
+  createdAt   DateTime     @default(now())
+  User        User?        @relation(fields: [userId], references: [id], onDelete: Cascade) // estou criando a relação com o modelo de usuário
+  userId      String?      @db.Uuid
+  token       String       @unique
+  expireAt    DateTime?
+  instagramId String?      @unique
+}
 
-// }
+model Automation {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name      String   @default("Untitled")
+  createdAt DateTime @default(now())
+  active    Boolean  @default(false)
+  User      User?    @relation(fields: [userId], references: [id], onDelete: Cascade) // estou criando a relação com o modelo de usuário
+  userId    String?  @db.Uuid
+}
+
+// enum
+enum SUBSCRIPTION_PLANS {
+  PRO
+  FREE
+}
+
+enum INTEGRATIONS {
+  INSTAGRAM
+}
+
+enum MEDIATYPE {
+  IMAGE
+  VIDEO
+  CARROSEL_ALBUM
+}
+
+enum LISTENERS {
+  SMARTAI
+  MESSAGE
+}
