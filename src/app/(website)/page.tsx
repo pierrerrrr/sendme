@@ -12,7 +12,7 @@ export default function Home() {
       <HeroSection />
       <Pricing />
       <FeaturesSection />
-      {/* <Cta /> */}
+      <Cta />
       <FooterSection />
     </section>
   );
