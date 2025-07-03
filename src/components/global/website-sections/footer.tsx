@@ -1,4 +1,4 @@
-import { Logo } from '@/components/logo'
+import { Logo } from '@/components/global/website-sections/logo'
 import Link from 'next/link'
 
 const links = [

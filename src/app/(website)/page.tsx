@@ -1,10 +1,10 @@
 'use client';
 
-import Cta from "@/components/cta";
-import FeaturesSection from "@/components/features";
-import FooterSection from "@/components/footer";
-import HeroSection from "@/components/hero-section";
-import Pricing from "@/components/pricing";
+import Cta from "@/components/global/website-sections/cta";
+import FeaturesSection from "@/components/global/website-sections/features";
+import FooterSection from "@/components/global/website-sections/footer";
+import HeroSection from "@/components/global/website-sections/hero-section";
+import Pricing from "@/components/global/website-sections/pricing";
 
 export default function Home() {
   return (
