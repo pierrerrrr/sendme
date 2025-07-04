@@ -18,6 +18,8 @@ model User {
   id           String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid // gera automaticamente um UUID no banco de dados
   clerkid      String         @unique
   email        String         @unique
+  // talvez eu opte por utilizar a própria chave API do usuário para otimizar custos da operação.
+  openaiKey    String?
   firstname    String?
   lastname     String?
   createdAt    DateTime       @default(now())
