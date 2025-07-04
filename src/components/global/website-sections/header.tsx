@@ -10,6 +10,7 @@ import { ModeToggle } from './ModeToggle'
 const menuItems = [
     { name: 'Pricing', href: '#link' },
     { name: 'Features', href: '#link' },
+    { name: 'Solutions', href: '#link' },
     { name: 'Contact Us', href: '#link' },
 ]
 
@@ -99,7 +100,7 @@ export const HeroHeader = () => {
                                     asChild
                                     size="sm"
                                     className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}>
-                                    <Link href="#">
+                                    <Link href="/dashboard">
                                         <span>Get Started</span>
                                     </Link>
                                 </Button>
