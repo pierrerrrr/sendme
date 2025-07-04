@@ -31,16 +31,22 @@ export default function HeroSection() {
     return (
         <>
             <HeroHeader />
-            <main className="overflow-hidden">
-                <div
-                    aria-hidden
-                    className="absolute inset-0 isolate hidden opacity-65 contain-strict lg:block">
-                    <div className="w-140 h-320 -translate-y-87.5 absolute left-0 top-0 -rotate-45 rounded-full bg-[radial-gradient(68.54%_68.72%_at_55.02%_31.46%,hsla(0,0%,85%,.08)_0,hsla(0,0%,55%,.02)_50%,hsla(0,0%,45%,0)_80%)]" />
-                    <div className="h-320 absolute left-0 top-0 w-60 -rotate-45 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,.06)_0,hsla(0,0%,45%,.02)_80%,transparent_100%)] [translate:5%_-50%]" />
-                    <div className="h-320 -translate-y-87.5 absolute left-0 top-0 w-60 -rotate-45 bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,.04)_0,hsla(0,0%,45%,.02)_80%,transparent_100%)]" />
+            <main className="overflow-hidden relative min-h-screen">
+                {/* Background com gradiente moderno */}
+                <div className="absolute inset-0 hero-gradient-bg" />
+                
+                {/* Elementos flutuantes decorativos */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <div className="floating-element-1 absolute w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
+                    <div className="floating-element-2 absolute w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
+                    <div className="floating-element-3 absolute w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
                 </div>
-                <section>
-                    <div className="relative pt-24 md:pt-36">
+                
+                {/* Grid pattern overlay */}
+                <div className="absolute inset-0 opacity-30 bg-grid-pattern" />
+                
+                <section className="relative z-10">
+                    <div className="relative pt-32 md:pt-40 pb-20">
                         <AnimatedGroup
                             variants={{
                                 container: {
@@ -75,9 +81,9 @@ export default function HeroSection() {
                                 height="4095"
                             /> */}
                         </AnimatedGroup>
-                        <div className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--color-background)_75%)]"></div>
+                        <div className="absolute inset-0 -z-10 size-full bg-gradient-to-b from-transparent via-transparent to-background/80"></div>
                         <div className="mx-auto max-w-7xl px-6">
-                            <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0">
+                            <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0 relative z-20">
                                 <AnimatedGroup variants={transitionVariants}>
                                     <Link
                                         href="#link"
@@ -102,7 +108,7 @@ export default function HeroSection() {
                                     preset="fade-in-blur"
                                     speedSegment={0.3}
                                     as="h1"
-                                    className="mt-8 text-balance font-semibold text-6xl md:text-7xl lg:mt-16 xl:text-[5.25rem]">
+                                    className="mt-8 text-balance font-bold text-4xl md:text-5xl lg:mt-16 xl:text-7xl leading-tight text-foreground">
                                     Automate your Instagram messaging with senDMe
                                 </TextEffect>
                                 <TextEffect
@@ -111,7 +117,7 @@ export default function HeroSection() {
                                     speedSegment={0.3}
                                     delay={0.5}
                                     as="p"
-                                    className="mx-auto mt-8 max-w-5xl text-balance text-lg">
+                                    className="mx-auto mt-8 max-w-5xl text-balance text-xl text-muted-foreground/90 font-medium">
                                     senDMe is your go-to platform for automating Instagram messages, ensuring you never miss a connection with your audience. With features like DM automation and direct product linking, engaging with followers has never been easier.
                                 </TextEffect>
 
@@ -133,9 +139,10 @@ export default function HeroSection() {
                                         <Button
                                             asChild
                                             size="lg"
-                                            className="rounded-xl px-5 text-base">
+                                            className="rounded-xl px-8 py-6 text-base font-semibold bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-primary shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                                             <Link href="#link">
                                                 <span className="text-nowrap">Start now</span>
+                                                <ArrowRight className="ml-2 size-4" />
                                             </Link>
                                         </Button>
                                     </div>
@@ -144,7 +151,7 @@ export default function HeroSection() {
                                         asChild
                                         size="lg"
                                         variant="ghost"
-                                        className="rounded-xl">
+                                        className="rounded-xl px-8 py-6 border-2 border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300">
                                         <Link href="#link">
                                             <span className="text-nowrap">Our work</span>
                                         </Link>
