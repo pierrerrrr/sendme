@@ -3,6 +3,7 @@
 import { usePaths } from '@/hooks/user-nav'
 import Link from 'next/link'
 import React from 'react'
+import SidebarItems from './sidebarItems'
 
 type Props = {
     slug: string
@@ -23,7 +24,7 @@ const Sidebar = ({ slug }: Props) => {
                     </Link>
                 </div>
                 <div className='flex flex-col py-3'>
-                    <SidebarItems />
+                    <SidebarItems page={page} slug={slug} />
                 </div>
             </div>
         </div>
