@@ -4,6 +4,9 @@ import { usePaths } from '@/hooks/user-nav'
 import Link from 'next/link'
 import React from 'react'
 import SidebarItems from './sidebarItems'
+import { Separator } from '@/components/ui/separator'
+import { Info } from 'lucide-react'
+import ClerkAuthState from '../clark-auth-state'
 
 type Props = {
     slug: string
@@ -25,6 +28,22 @@ const Sidebar = ({ slug }: Props) => {
                 </div>
                 <div className='flex flex-col py-3'>
                     <SidebarItems page={page} slug={slug} />
+                </div>
+                <div className='px-16'>
+                    <Separator
+                        orientation='horizontal'
+                        className='bg-[#333336]'
+                    />
+                </div>
+                <div className='px-3 flex flex-col gap-y-5'>
+                    <div className='flex gap-x-2'>
+                        <ClerkAuthState />
+                        <p className='text-[#989ca0]'>Profile</p>
+                    </div>
+                    <div className="flex gap-x-3">
+                        <Info />
+                        <p className='text-[#989ca0]'>Help</p>
+                    </div>
                 </div>
             </div>
         </div>

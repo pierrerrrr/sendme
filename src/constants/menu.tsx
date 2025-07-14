@@ -1,4 +1,4 @@
-import { Blocks, BookUser, House, Info, Settings, UserPen, Workflow } from 'lucide-react';
+import { Blocks, BookUser, House, Settings, Workflow } from 'lucide-react';
 import { v4 as uuid } from 'uuid';
 
 type FieldProps = {
@@ -35,14 +35,4 @@ export const SIDEBAR_MENU: SideBarProps[] = [
         label: 'settings',
         icon: <Settings />
     },
-    {
-        id: uuid(),
-        label: 'profile',
-        icon: <UserPen />
-    },
-    {
-        id: uuid(),
-        label: 'help',
-        icon: <Info />
-    }
 ]
