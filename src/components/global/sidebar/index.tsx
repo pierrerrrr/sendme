@@ -7,6 +7,8 @@ import SidebarItems from './sidebarItems'
 import { Separator } from '@/components/ui/separator'
 import { Info } from 'lucide-react'
 import ClerkAuthState from '../clark-auth-state'
+import { SubscriptionPlan } from '../subscription-plan'
+import UpgradeCard from './upgrade'
 
 type Props = {
     slug: string
@@ -45,6 +47,11 @@ const Sidebar = ({ slug }: Props) => {
                         <p className='text-[#989ca0]'>Help</p>
                     </div>
                 </div>
+                <SubscriptionPlan>
+                    <div className="flex-1 flex flex-col justify-end">
+                        <UpgradeCard />
+                    </div>
+                </SubscriptionPlan>
             </div>
         </div>
     )
