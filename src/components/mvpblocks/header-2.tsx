@@ -151,7 +151,7 @@ export default function Header2() {
             >
 
               <Link
-                href="/login"
+                href="/dashboard"
                 className="text-foreground/80 hover:text-foreground px-4 py-2 text-sm font-medium transition-colors duration-200"
               >
                 Sign In
@@ -162,7 +162,7 @@ export default function Header2() {
                 whileTap={{ scale: 0.98 }}
               >
                 <Link
-                  href="/signup"
+                  href="/dashboard"
                   className="bg-foreground text-background hover:bg-foreground/90 inline-flex items-center space-x-2 rounded-lg px-5 py-2.5 text-sm font-medium shadow-sm transition-all duration-200"
                 >
                   <span>Get Started</span>
@@ -235,14 +235,14 @@ export default function Header2() {
                     <ModeToggle />
                   </div>
                   <Link
-                    href="/login"
+                    href="/dashboard"
                     className="text-foreground hover:bg-muted block w-full rounded-lg py-3 text-center font-medium transition-colors duration-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Sign In
                   </Link>
                   <Link
-                    href="/signup"
+                    href="/dashboard"
                     className="bg-foreground text-background hover:bg-foreground/90 block w-full rounded-lg py-3 text-center font-medium transition-all duration-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
