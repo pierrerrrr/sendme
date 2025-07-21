@@ -109,7 +109,7 @@
     transition: background-image 0.5s ease-in-out;
   }
 
-  html[class='dark'] body {
+  /* html[class='dark'] body {
     background-image: radial-gradient(
       ellipse at center,
       hsl(var(--black-light)) 0%,
@@ -117,7 +117,7 @@
       hsl(var(--black-pure)) 100%
     );
     background-attachment: fixed;
-  }
+  } */
 }
 
 .backdrop-blur__safari {
