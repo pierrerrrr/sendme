@@ -13,11 +13,11 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { name: 'Home', href: '/' },
-  { name: 'Features', href: '/features' },
-  { name: 'Solutions', href: '/solutions' },
-  { name: 'Pricing', href: '/pricing' },
-  { name: 'Resources', href: '/resources' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Features', href: '#features' },
+  { name: 'Solutions', href: '#solutions' },
+  { name: 'Pricing', href: '#pricing' },
+  { name: 'Resources', href: '#resources' },
+  { name: 'Contact', href: '#contact' },
 ];
 
 export default function Header2() {
@@ -96,7 +96,7 @@ export default function Header2() {
             >
               <Link href="/" className="flex items-center space-x-3">
                 <div className="relative">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 via-blue-600 to-blue-700 shadow-lg">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#818cf8] via-[#6f7cf5] to-[#818cf8] shadow-lg">
                     <MessageCircle className="h-5 w-5 text-white" />
                   </div>
                   <div className="absolute -top-1 -right-1 h-3 w-3 animate-pulse rounded-full bg-green-400"></div>

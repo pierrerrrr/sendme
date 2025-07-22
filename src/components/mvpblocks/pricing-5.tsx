@@ -151,7 +151,7 @@ const PricingCard = ({
 				isHighlighted
 					? 'bg-foreground text-background'
 					: 'bg-background text-foreground',
-				isPopular && 'outline outline-[#eb638a]',
+				isPopular && 'outline outline-[#818cf8]',
 			)}
 		>
 			{isHighlighted && <HighlightedBackground />}
@@ -205,7 +205,7 @@ const PricingCard = ({
 
 			<Button
 				className={cn(
-					'h-fit w-full rounded-lg',
+					'h-fit w-full rounded-lg text-white',
 					isHighlighted && 'bg-accent text-foreground hover:bg-accent/95',
 				)}
 			>
@@ -223,7 +223,7 @@ export default function PricingSection() {
 	>(PAYMENT_FREQUENCIES[0]);
 
 	return (
-		<section className="flex flex-col items-center gap-10 py-10 bg-white dark:bg-black">
+		<section className="flex flex-col items-center gap-10 py-10 bg-background" id='pricing'>
 			<div className="space-y-7 text-center">
 				<div className="space-y-4">
 					<h1 className="text-4xl font-medium md:text-5xl">

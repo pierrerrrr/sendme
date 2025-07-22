@@ -43,7 +43,7 @@ export default function GradientHero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="from-primary/10 via-foreground/85 to-foreground/50 bg-gradient-to-tl bg-clip-text text-center text-4xl tracking-tighter text-balance text-transparent sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            Automate your Instagram messaging with senDMe
+            Automate your Instagram messaging with <span className='from-primary/10 via-foreground/85 to-foreground/50 bg-gradient-to-tl bg-clip-text text-transparent'>senDMe</span>
           </motion.h1>
 
           {/* Description */}
@@ -67,7 +67,7 @@ export default function GradientHero() {
               size="lg"
               className="group bg-primary text-primary-foreground hover:shadow-primary/30 relative overflow-hidden rounded-full px-6 shadow-lg transition-all duration-300"
             >
-              <span className="relative z-10 flex items-center">
+              <span className="relative z-10 flex items-center text-white">
                 Get Started
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </span>
