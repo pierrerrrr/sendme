@@ -113,10 +113,10 @@ export default function FeaturesSection() {
             <div>
                 <div className="relative mx-auto max-w-2xl sm:text-center">
                     <div className="relative z-10">
-                        <h3 className="mt-4 text-3xl font-normal tracking-tighter sm:text-4xl md:text-5xl">
+                        <h2 className="from-primary/10 via-foreground/85 to-foreground/50 bg-gradient-to-tl bg-clip-text text-center text-4xl tracking-tighter text-balance text-transparent sm:text-5xl md:text-6xl lg:text-5xl">
                             Why senDMe stands out
-                        </h3>
-                        <p className="text-foreground/60 mt-3">
+                        </h2>
+                        <p className="text-foreground/60 mt-3 text-center">
                             senDMe isn’t just another Instagram automation tool — it’s a smart, AI-driven platform built to connect leads with products, influencers, and stores faster and more effectively. Discover how our powerful features help you boost engagement, save time, and grow your business effortlessly.
                         </p>
                     </div>

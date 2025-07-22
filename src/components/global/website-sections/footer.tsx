@@ -1,157 +1,190 @@
-import { Logo } from '@/components/global/website-sections/logo'
-import Link from 'next/link'
+import {
+    Dribbble,
+    Facebook,
+    Github,
+    Instagram,
+    Linkedin,
+    Mail,
+    MapPin,
+    MessageCircle,
+    MessageCircleMore,
+    Phone,
+    Twitter,
+} from 'lucide-react';
+import Link from 'next/link';
 
-const links = [
-    {
-        title: 'Pricing',
-        href: '#',
+const data = {
+    linkedinLink: 'https://www.linkedin.com/company/sendme',
+    githubLink: 'https://github.com/mvpblocks',
+    about: {
+        history: '/company-history',
+        team: '/meet-the-team',
+        handbook: '/employee-handbook',
+        careers: '/careers',
     },
-    {
-        title: 'Features',
-        href: '#',
+    help: {
+        faqs: '/faqs',
+        support: '/support',
+        livechat: '/live-chat',
     },
-    {
-        title: 'Solutions',
-        href: '#',
+    contact: {
+        email: 'contato@sendme.com',
+        phone: '+55 (11) 9 9999-9999',
+        address: 'São Paulo, São Paulo, Brasil',
     },
-    {
-        title: 'Contact Us',
-        href: '#',
+    company: {
+        name: 'senDMe',
+        description:
+            'Connect, automate, and convert — all through your Instagram.',
+        logo: '/logo.webp',
     },
-]
+};
 
-export default function FooterSection() {
+const socialLinks = [
+    { icon: Github, label: 'GitHub', href: data.githubLink },
+    { icon: Linkedin, label: 'LinkedIn', href: data.linkedinLink },
+];
+
+// const aboutLinks = [
+//   { text: 'Company History', href: data.about.history },
+//   { text: 'Meet the Team', href: data.about.team },
+//   { text: 'Employee Handbook', href: data.about.handbook },
+//   { text: 'Careers', href: data.about.careers },
+// ];
+
+// const serviceLinks = [
+//   { text: 'Web Development', href: data.services.webdev },
+//   { text: 'Web Design', href: data.services.webdesign },
+//   { text: 'Marketing', href: data.services.marketing },
+//   { text: 'Google Ads', href: data.services.googleads },
+// ];
+
+const helpfulLinks = [
+    { text: 'Home', href: "/" },
+    { text: 'Features', href: "#features" },
+    { text: 'Pricing', href: "#pricing", hasIndicator: true },
+];
+
+const contactInfo = [
+    { icon: Mail, text: data.contact.email },
+    { icon: Phone, text: data.contact.phone },
+    { icon: MapPin, text: data.contact.address, isAddress: true },
+];
+
+export default function Footer() {
     return (
-        <footer className="bg-white dark:bg-black py-16 md:py-32">
-            <div className="mx-auto max-w-5xl px-6">
-                <Link
-                    href="/"
-                    aria-label="go home"
-                    className="mx-auto block size-fit text-4xl font-bold">
-                    sen<span className='text-blue-600'>DM</span>e
-                </Link>
+        <footer className="bg-secondary dark:bg-secondary/20 mt-16 w-full place-self-end rounded-t-xl">
+            <div className="mx-auto max-w-screen-xl px-4 pt-16 pb-6 sm:px-6 lg:px-8 lg:pt-24">
+                <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+                    <div>
+                        <div className="text-primary flex justify-center gap-2 sm:justify-start">
+                            <Link href="/" className="flex items-center space-x-3">
+                                <div className="relative">
+                                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#818cf8] via-[#6f7cf5] to-[#818cf8] shadow-lg">
+                                        <MessageCircleMore className="h-5 w-5 text-white" />
+                                    </div>
+                                    <div className="absolute -top-1 -right-1 h-3 w-3 animate-pulse rounded-full bg-gradient-to-r from-pink-500 via-red-500 via-orange-400 to-yellow-300"></div>
+                                </div>
+                                <div className="flex flex-col">
+                                    <span className="text-foreground text-lg font-bold">
+                                        senDMe
+                                    </span>
+                                    <span className="text-muted-foreground -mt-1 text-xs">
+                                        Connect faster
+                                    </span>
+                                </div>
+                            </Link>
+                        </div>
 
-                <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
-                    {links.map((link, index) => (
-                        <Link
-                            key={index}
-                            href={link.href}
-                            className="text-muted-foreground hover:text-primary block duration-150">
-                            <span>{link.title}</span>
-                        </Link>
-                    ))}
+                        <p className="text-foreground/50 mt-6 max-w-md text-center leading-relaxed sm:max-w-xs sm:text-left">
+                            {data.company.description}
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:col-span-2">
+
+                        <div className="text-center sm:text-left">
+                            <p className="text-lg font-medium">Helpful Links</p>
+                            <ul className="mt-8 space-y-4 text-sm">
+                                {helpfulLinks.map(({ text, href, hasIndicator }) => (
+                                    <li key={text}>
+                                        <a
+                                            href={href}
+                                            className={`${hasIndicator
+                                                ? 'group flex justify-center gap-1.5 sm:justify-start'
+                                                : 'text-secondary-foreground/70 transition'
+                                                }`}
+                                        >
+                                            <span className="text-secondary-foreground/70 transition">
+                                                {text}
+                                            </span>
+                                            {hasIndicator && (
+                                                <span className="relative flex size-2">
+                                                    <span className="bg-primary absolute inline-flex h-full w-full animate-ping rounded-full opacity-75" />
+                                                    <span className="bg-primary relative inline-flex size-2 rounded-full" />
+                                                </span>
+                                            )}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        <div className="text-center sm:text-left">
+                            <p className="text-lg font-medium">Contact Us</p>
+                            <ul className="mt-8 space-y-4 text-sm">
+                                {contactInfo.map(({ icon: Icon, text, isAddress }) => (
+                                    <li key={text}>
+                                        <a
+                                            className="flex items-center justify-center gap-1.5 sm:justify-start"
+                                            href="#"
+                                        >
+                                            <Icon className="text-primary size-5 shrink-0 shadow-sm" />
+                                            {isAddress ? (
+                                                <address className="text-secondary-foreground/70 -mt-0.5 flex-1 not-italic transition">
+                                                    {text}
+                                                </address>
+                                            ) : (
+                                                <span className="text-secondary-foreground/70 flex-1 transition">
+                                                    {text}
+                                                </span>
+                                            )}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="text-center sm:text-left">
+                            <p className="text-lg font-medium">Social Media</p>
+                            <ul className="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8">
+                                {socialLinks.map(({ icon: Icon, label, href }) => (
+                                    <li key={label}>
+                                        <Link
+                                            href={href}
+                                            className="text-primary hover:text-primary/80 transition"
+                                        >
+                                            <span className="sr-only">{label}</span>
+                                            <Icon className="size-6" />
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
-                    <Link
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="X/Twitter"
-                        className="text-muted-foreground hover:text-primary block">
-                        <svg
-                            className="size-6"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="1em"
-                            height="1em"
-                            viewBox="0 0 24 24">
-                            <path
-                                fill="currentColor"
-                                d="M10.488 14.651L15.25 21h7l-7.858-10.478L20.93 3h-2.65l-5.117 5.886L8.75 3h-7l7.51 10.015L2.32 21h2.65zM16.25 19L5.75 5h2l10.5 14z"></path>
-                        </svg>
-                    </Link>
-                    <Link
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="LinkedIn"
-                        className="text-muted-foreground hover:text-primary block">
-                        <svg
-                            className="size-6"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="1em"
-                            height="1em"
-                            viewBox="0 0 24 24">
-                            <path
-                                fill="currentColor"
-                                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"></path>
-                        </svg>
-                    </Link>
-                    <Link
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Facebook"
-                        className="text-muted-foreground hover:text-primary block">
-                        <svg
-                            className="size-6"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="1em"
-                            height="1em"
-                            viewBox="0 0 24 24">
-                            <path
-                                fill="currentColor"
-                                d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95"></path>
-                        </svg>
-                    </Link>
-                    <Link
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Threads"
-                        className="text-muted-foreground hover:text-primary block">
-                        <svg
-                            className="size-6"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="1em"
-                            height="1em"
-                            viewBox="0 0 24 24">
-                            <path
-                                fill="none"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="1.5"
-                                d="M19.25 8.505c-1.577-5.867-7-5.5-7-5.5s-7.5-.5-7.5 8.995s7.5 8.996 7.5 8.996s4.458.296 6.5-3.918c.667-1.858.5-5.573-6-5.573c0 0-3 0-3 2.5c0 .976 1 2 2.5 2s3.171-1.027 3.5-3c1-6-4.5-6.5-6-4"
-                                color="currentColor"></path>
-                        </svg>
-                    </Link>
-                    <Link
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Instagram"
-                        className="text-muted-foreground hover:text-primary block">
-                        <svg
-                            className="size-6"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="1em"
-                            height="1em"
-                            viewBox="0 0 24 24">
-                            <path
-                                fill="currentColor"
-                                d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"></path>
-                        </svg>
-                    </Link>
-                    <Link
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="TikTok"
-                        className="text-muted-foreground hover:text-primary block">
-                        <svg
-                            className="size-6"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="1em"
-                            height="1em"
-                            viewBox="0 0 24 24">
-                            <path
-                                fill="currentColor"
-                                d="M16.6 5.82s.51.5 0 0A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48"></path>
-                        </svg>
-                    </Link>
+
+                <div className="mt-12 border-t pt-6">
+                    <div className="text-center sm:flex sm:justify-between sm:text-left">
+                        <p className="text-sm">
+                            <span className="block sm:inline">All rights reserved.</span>
+                        </p>
+
+                        <p className="text-secondary-foreground/70 mt-4 text-sm transition sm:order-first sm:mt-0">
+                            &copy; 2025 {data.company.name}
+                        </p>
+                    </div>
                 </div>
-                <span className="text-muted-foreground block text-center text-sm"> © {new Date().getFullYear()} Pierre, All rights reserved</span>
             </div>
         </footer>
-    )
+    );
 }

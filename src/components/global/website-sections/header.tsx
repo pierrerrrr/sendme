@@ -1,115 +1,260 @@
-'use client'
-import Link from 'next/link'
-import { Logo } from '@/components/global/website-sections/logo'
-import { Menu, X } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import React from 'react'
-import { cn } from '@/lib/utils'
-import { ModeToggle } from './ModeToggle'
+'use client';
 
-const menuItems = [
-    { name: 'Pricing', href: '#link' },
-    { name: 'Features', href: '#link' },
-    { name: 'Solutions', href: '#link' },
-    { name: 'Contact Us', href: '#link' },
-]
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence, easeInOut } from 'framer-motion';
+import { Menu, X, ArrowRight, Zap, Search, MessageCircle, MessageCircleMore } from 'lucide-react';
+import Link from 'next/link';
+import { ModeToggle } from '@/components/global/website-sections/ModeToggle';
 
-export const HeroHeader = () => {
-    const [menuState, setMenuState] = React.useState(false)
-    const [isScrolled, setIsScrolled] = React.useState(false)
+interface NavItem {
+  name: string;
+  href: string;
+}
 
-    React.useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50)
-        }
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [])
-    return (
-        <header>
-            <nav
-                data-state={menuState && 'active'}
-                className="fixed z-20 w-full px-2">
-                <div className={cn('mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12', isScrolled && 'bg-background/50 max-w-4xl rounded-2xl border backdrop-blur-lg lg:px-5')}>
-                    <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
-                        <div className="flex w-full justify-between lg:w-auto">
-                            <Link
-                                href="/"
-                                aria-label="home"
-                                className="flex text-4xl font-bold items-center space-x-2">
-                                {/* <Logo /> */}
-                                sen <span className='text-blue-600'>DM</span>e
-                            </Link>
+const navItems: NavItem[] = [
+  { name: 'Home', href: '/' },
+  { name: 'Features', href: '#features' },
+  { name: 'Pricing', href: '#pricing' },
+  { name: 'Contact', href: '#contact' },
+];
 
-                            <button
-                                onClick={() => setMenuState(!menuState)}
-                                aria-label={menuState == true ? 'Close Menu' : 'Open Menu'}
-                                className="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden">
-                                <Menu className="in-data-[state=active]:rotate-180 in-data-[state=active]:scale-0 in-data-[state=active]:opacity-0 m-auto size-6 duration-200" />
-                                <X className="in-data-[state=active]:rotate-0 in-data-[state=active]:scale-100 in-data-[state=active]:opacity-100 absolute inset-0 m-auto size-6 -rotate-180 scale-0 opacity-0 duration-200" />
-                            </button>
-                        </div>
+export default function Header2() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
-                        <div className="absolute inset-0 m-auto hidden size-fit lg:block">
-                            <ul className="flex gap-6 text-center text-sm">
-                                {menuItems.map((item, index) => (
-                                    <li key={index}>
-                                        <Link
-                                            href={item.href}
-                                            className="text-base text-white-foreground hover:text-primary block duration-150">
-                                            <span>{item.name}</span>
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-                        <div className="bg-background in-data-[state=active]:block lg:in-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-2xl shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none dark:lg:bg-transparent">
-                            <div className="lg:hidden">
-                                <ul className="space-y-6 text-base">
-                                    {menuItems.map((item, index) => (
-                                        <li key={index}>
-                                            <Link
-                                                href={item.href}
-                                                className="text-muted-foreground hover:text-accent-foreground block duration-150">
-                                                <span>{item.name}</span>
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
-                                <Button
-                                    asChild
-                                    variant="outline"
-                                    size="sm"
-                                    className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="/dashboard">
-                                        <span>Login</span>
-                                    </Link>
-                                </Button>
-                                <Button
-                                    asChild
-                                    size="sm"
-                                    className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="/dashboard">
-                                        <span>Sign Up</span>
-                                    </Link>
-                                </Button>
-                                <Button
-                                    asChild
-                                    size="sm"
-                                    className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}>
-                                    <Link href="/dashboard">
-                                        <span>Get Started</span>
-                                    </Link>
-                                </Button>
-                                <ModeToggle />
-                            </div>
-                        </div>
-                    </div>
+  const containerVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: -10 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  const mobileMenuVariants = {
+    closed: {
+      opacity: 0,
+      x: '100%',
+      transition: {
+        duration: 0.3,
+        ease: easeInOut,
+      },
+    },
+    open: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.3,
+        ease: easeInOut,
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const mobileItemVariants = {
+    closed: { opacity: 0, x: 20 },
+    open: { opacity: 1, x: 0 },
+  };
+
+  return (
+    <>
+      <motion.header
+        className={`fixed top-0 right-0 left-0 z-50 transition-all duration-500 ${isScrolled
+          ? 'border-border/50 bg-background/80 border-b shadow-sm backdrop-blur-md'
+          : 'bg-transparent'
+          }`}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-3 h-16 items-center">
+            {/* Logo - Left side */}
+            <motion.div
+              className="flex items-center space-x-3 justify-self-start"
+              variants={itemVariants}
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+            >
+              <Link href="/" className="flex items-center space-x-3">
+                <div className="relative">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-[#818cf8] via-[#6f7cf5] to-[#818cf8] shadow-lg">
+                    <MessageCircleMore className="h-5 w-5 text-white" />
+                  </div>
+                  <div className="absolute -top-1 -right-1 h-3 w-3 animate-pulse rounded-full bg-gradient-to-r from-pink-500 via-red-500 via-orange-400 to-yellow-300"></div>
                 </div>
+                <div className="flex flex-col">
+                  <span className="text-foreground text-lg font-bold">
+                    senDMe
+                  </span>
+                  <span className="text-muted-foreground -mt-1 text-xs">
+                    Connect faster
+                  </span>
+                </div>
+              </Link>
+            </motion.div>
+
+            {/* Navigation - Center */}
+            <nav className="hidden items-center justify-center space-x-1 lg:flex justify-self-center">
+              {navItems.map((item, index) => (
+                <motion.div
+                  key={item.name}
+                  variants={itemVariants}
+                  className="relative"
+                  onMouseEnter={() => setHoveredItem(item.name)}
+                  onMouseLeave={() => setHoveredItem(null)}
+                >
+                  <Link
+                    href={item.href}
+                    className="text-foreground/80 hover:text-foreground relative rounded-lg px-4 py-2 text-sm font-medium transition-colors duration-200"
+                  >
+                    {hoveredItem === item.name && (
+                      <motion.div
+                        className="bg-muted absolute inset-0 rounded-lg"
+                        layoutId="navbar-hover"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{
+                          type: 'spring',
+                          stiffness: 400,
+                          damping: 30,
+                        }}
+                      />
+                    )}
+                    <span className="relative z-10">{item.name}</span>
+                  </Link>
+                </motion.div>
+              ))}
             </nav>
-        </header>
-    )
+
+            {/* Buttons - Right side */}
+            <motion.div
+              className="hidden items-center justify-end space-x-3 lg:flex justify-self-end"
+              variants={itemVariants}
+            >
+
+              <Link
+                href="/waitlist"
+                className="text-foreground/80 hover:text-foreground px-4 py-2 text-sm font-medium transition-colors duration-200"
+              >
+                Sign In
+              </Link>
+
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Link
+                  href="/waitlist"
+                  className="bg-foreground text-background hover:bg-foreground/90 inline-flex items-center space-x-2 rounded-lg px-5 py-2.5 text-sm font-medium shadow-sm transition-all duration-200"
+                >
+                  <span>Get Started</span>
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <ModeToggle />
+              </motion.div>
+            </motion.div>
+
+            <motion.button
+              className="text-foreground hover:bg-muted rounded-lg p-2 transition-colors duration-200 lg:hidden justify-self-end col-start-3"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              variants={itemVariants}
+              whileTap={{ scale: 0.95 }}
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </motion.button>
+          </div>
+        </div>
+      </motion.header>
+
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <>
+            <motion.div
+              className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm lg:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            <motion.div
+              className="border-border bg-background fixed top-16 right-4 z-50 w-80 overflow-hidden rounded-2xl border shadow-2xl lg:hidden"
+              variants={mobileMenuVariants}
+              initial="closed"
+              animate="open"
+              exit="closed"
+            >
+              <div className="space-y-6 p-6">
+                <div className="space-y-1">
+                  {navItems.map((item) => (
+                    <motion.div key={item.name} variants={mobileItemVariants}>
+                      <Link
+                        href={item.href}
+                        className="text-foreground hover:bg-muted block rounded-lg px-4 py-3 font-medium transition-colors duration-200"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <motion.div
+                  className="border-border space-y-3 border-t pt-6"
+                  variants={mobileItemVariants}
+                >
+                  <div className="flex items-center justify-between px-4">
+                    <span className="text-foreground text-sm font-medium">Theme</span>
+                    <ModeToggle />
+                  </div>
+                  <Link
+                    href="/waitlist"
+                    className="text-foreground hover:bg-muted block w-full rounded-lg py-3 text-center font-medium transition-colors duration-200"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Sign In
+                  </Link>
+                  <Link
+                    href="/waitlist"
+                    className="bg-foreground text-background hover:bg-foreground/90 block w-full rounded-lg py-3 text-center font-medium transition-all duration-200"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Get Started
+                  </Link>
+                </motion.div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
+  );
 }

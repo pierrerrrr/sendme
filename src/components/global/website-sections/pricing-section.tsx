@@ -225,10 +225,10 @@ export default function PricingSection() {
 		<section className="flex flex-col items-center gap-10 py-10 bg-background" id='pricing'>
 			<div className="space-y-7 text-center">
 				<div className="space-y-4">
-					<h1 className="text-4xl font-medium md:text-5xl">
+					<h2 className="from-primary/10 via-foreground/85 to-foreground/50 bg-gradient-to-tl bg-clip-text text-center text-4xl tracking-tighter text-balance text-transparent sm:text-5xl md:text-6xl lg:text-5xl">
 						Pricing made for growth
-					</h1>
-					<p className="text-foreground/60 mt-3">
+					</h2>
+					<p className="text-foreground/60 mt-3 text-center">
 						Whether you’re experimenting with automation or scaling your outreach — senDMe has a plan for every stage.
 					</p>
 				</div>
