@@ -14,9 +14,7 @@ interface NavItem {
 const navItems: NavItem[] = [
   { name: 'Home', href: '/' },
   { name: 'Features', href: '#features' },
-  { name: 'Solutions', href: '#solutions' },
   { name: 'Pricing', href: '#pricing' },
-  { name: 'Resources', href: '#resources' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -79,17 +77,18 @@ export default function Header2() {
     <>
       <motion.header
         className={`fixed top-0 right-0 left-0 z-50 transition-all duration-500 ${isScrolled
-            ? 'border-border/50 bg-background/80 border-b shadow-sm backdrop-blur-md'
-            : 'bg-transparent'
+          ? 'border-border/50 bg-background/80 border-b shadow-sm backdrop-blur-md'
+          : 'bg-transparent'
           }`}
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
+          <div className="grid grid-cols-3 h-16 items-center">
+            {/* Logo - Left side */}
             <motion.div
-              className="flex items-center space-x-3"
+              className="flex items-center space-x-3 justify-self-start"
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
               transition={{ type: 'spring', stiffness: 400, damping: 25 }}
@@ -112,7 +111,8 @@ export default function Header2() {
               </Link>
             </motion.div>
 
-            <nav className="hidden items-center space-x-1 lg:flex">
+            {/* Navigation - Center */}
+            <nav className="hidden items-center justify-center space-x-1 lg:flex justify-self-center">
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.name}
@@ -145,8 +145,9 @@ export default function Header2() {
               ))}
             </nav>
 
+            {/* Buttons - Right side */}
             <motion.div
-              className="hidden items-center space-x-3 lg:flex"
+              className="hidden items-center justify-end space-x-3 lg:flex justify-self-end"
               variants={itemVariants}
             >
 
@@ -179,7 +180,7 @@ export default function Header2() {
             </motion.div>
 
             <motion.button
-              className="text-foreground hover:bg-muted rounded-lg p-2 transition-colors duration-200 lg:hidden"
+              className="text-foreground hover:bg-muted rounded-lg p-2 transition-colors duration-200 lg:hidden justify-self-end col-start-3"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               variants={itemVariants}
               whileTap={{ scale: 0.95 }}

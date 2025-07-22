@@ -11,57 +11,56 @@ import { motion } from 'framer-motion';
 const PAYMENT_FREQUENCIES: ('monthly' | 'yearly')[] = ['monthly', 'yearly'];
 const TIERS = [
 	{
-		id: 'individuals',
-		name: 'Individuals',
+		id: 'open_source',
+		name: 'Open Source',
 		price: {
-			monthly: 'Free',
-			yearly: 'Free',
+			monthly: "Free",
+			yearly: "Free",
 		},
 		description: 'For your hobby projects',
 		features: [
-			'Free email alerts',
-			'3-minute checks',
-			'Automatic data enrichment',
-			'10 monitors',
-			'Up to 3 seats',
+			'Basic DM automation',
+			'Up to 1000 messages per month',
+			'Community support',
+			'Limited to 10 automations',
 		],
-		cta: 'Get started',
+		cta: 'Get started on Github',
 	},
 	{
-		id: 'teams',
-		name: 'Teams',
+		id: 'pro',
+		name: 'Pro',
 		price: {
-			monthly: 90,
-			yearly: 75,
+			monthly: 50,
+			yearly: 40,
 		},
 		description: 'Great for small businesses',
 		features: [
-			'Unlimited phone calls',
-			'30 second checks',
-			'Single-user account',
-			'20 monitors',
-			'Up to 6 seats',
+			'Everything from free',
+			'AI-powered DM replies in DMs',
+			'Unlimtited automations',
+			'Up to 5 users',
+			'24/7 support',
 		],
 		cta: 'Get started',
 		popular: true,
 	},
-	{
-		id: 'organizations',
-		name: 'Organizations',
-		price: {
-			monthly: 120,
-			yearly: 100,
-		},
-		description: 'Great for large businesses',
-		features: [
-			'Unlimited phone calls',
-			'15 second checks',
-			'Single-user account',
-			'50 monitors',
-			'Up to 10 seats',
-		],
-		cta: 'Get started',
-	},
+	// {
+	// 	id: 'organizations',
+	// 	name: 'Organizations',
+	// 	price: {
+	// 		monthly: 120,
+	// 		yearly: 100,
+	// 	},
+	// 	description: 'Great for large businesses',
+	// 	features: [
+	// 		'Unlimited phone calls',
+	// 		'15 second checks',
+	// 		'Single-user account',
+	// 		'50 monitors',
+	// 		'Up to 10 seats',
+	// 	],
+	// 	cta: 'Get started',
+	// },
 	{
 		id: 'enterprise',
 		name: 'Enterprise',
@@ -126,7 +125,7 @@ const Tab = ({
 							: 'bg-gray-300 hover:bg-gray-300',
 					)}
 				>
-					Save 35%
+					Save 20%
 				</Badge>
 			)}
 		</button>
@@ -172,13 +171,13 @@ const PricingCard = ({
 						<NumberFlow
 							format={{
 								style: 'currency',
-								currency: 'USD',
+								currency: 'BRL',
 								trailingZeroDisplay: 'stripIfInteger',
 							}}
 							value={price}
 							className="text-4xl font-medium"
 						/>
-						<p className="-mt-2 text-xs font-medium">Per month/user</p>
+						<p className="-mt-2 text-xs font-medium">Per month</p>
 					</>
 				) : (
 					<h1 className="text-4xl font-medium">{price}</h1>
@@ -227,11 +226,10 @@ export default function PricingSection() {
 			<div className="space-y-7 text-center">
 				<div className="space-y-4">
 					<h1 className="text-4xl font-medium md:text-5xl">
-						Plans and Pricing
+						Pricing made for growth
 					</h1>
-					<p>
-						Receive unlimited credits when you pay yearly, and save on your
-						plan.
+					<p className="text-foreground/60 mt-3">
+						Whether you’re experimenting with automation or scaling your outreach — senDMe has a plan for every stage.
 					</p>
 				</div>
 				<div className="mx-auto flex w-fit rounded-full bg-[#F3F4F6] p-1 dark:bg-[#222]">
@@ -249,7 +247,7 @@ export default function PricingSection() {
 				</div>
 			</div>
 
-			<div className="grid w-full max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			<div className="grid w-full max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
 				{filteredTiers.map((tier, i) => (
 					<PricingCard
 						key={i}

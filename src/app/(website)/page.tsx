@@ -12,7 +12,6 @@ export default function Home() {
       <GradientHero />
       <FeaturesSection />
       <PricingSection />
-      {/* <Pricing /> */}
       <Footer />
     </section>
   );

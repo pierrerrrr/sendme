@@ -43,7 +43,7 @@ export default function GradientHero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="from-primary/10 via-foreground/85 to-foreground/50 bg-gradient-to-tl bg-clip-text text-center text-4xl tracking-tighter text-balance text-transparent sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            Automate your Instagram messaging with <span className='from-primary/10 via-foreground/85 to-foreground/50 bg-gradient-to-tl bg-clip-text text-transparent'>senDMe</span>
+            Automate your Instagram messaging with <span className='from-primary via-primary/80 to-primary/60 bg-gradient-to-r bg-clip-text text-transparent'>senDMe</span>
           </motion.h1>
 
           {/* Description */}
@@ -103,13 +103,13 @@ export default function GradientHero() {
                   <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
                   <div className="h-3 w-3 rounded-full bg-green-500"></div>
                 </div>
-                {/* <div className="bg-background/50 text-muted-foreground mx-auto flex items-center rounded-md px-3 py-1 text-xs">
-                  https://your-awesome-app.com
-                </div> */}
+                <div className="bg-background/50 text-muted-foreground mx-auto flex items-center rounded-md px-3 py-1 text-xs">
+                  https://your-awesome-app.com - ilustrative Image
+                </div>
               </div>
               <div className="relative">
                 <img
-                  src="https://via.placeholder.com/800x400.png?text=Dashboard+Preview"
+                  src="https://cdn.dribbble.com/userupload/32377708/file/original-9f453e6e84081d2de0f96f37ed343e35.png?resize=1024x769&vertical=center"
                   alt="Dashboard Preview"
                   className="w-full"
                 />

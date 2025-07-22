@@ -57,27 +57,27 @@ const BentoGridItem = ({
 
 const items = [
     {
-        title: 'Instant and Intelligent Connections',
+        title: 'Instant and intelligent connections',
         description:
             'Connect leads directly to the right products, influencers, or stores with precise automations, saving time and boosting conversions.',
         icon: <Cable className="size-6" />,
         size: 'large' as const,
     },
     {
-        title: 'AI-Powered Automated Responses',
+        title: 'AI-Powered automated responses',
         description:
             'Deliver a personalized experience with AI-driven messages that understand and respond to your audience naturally and efficiently.',
         icon: <Brain className="size-6" />,
         size: 'small' as const,
     },
     {
-        title: 'Dynamic Audience Segmentation',
+        title: 'Dynamic audience segmentation',
         description: 'Automatically identify followers’ interests, behaviors, and preferences to send highly targeted and relevant messages.',
         icon: <TableColumnsSplit className="size-6" />,
         size: 'medium' as const,
     },
     {
-        title: 'Direct Product Links in DMs',
+        title: 'Direct product links in DMs',
         description: "Turn followers into customers by sending direct links to products or stores via DM, right when they need them.",
         icon: <Link className="size-6" />,
         size: 'medium' as const,
@@ -89,7 +89,7 @@ const items = [
         size: 'small' as const,
     },
     {
-        title: 'Performance and Engagement Focused',
+        title: 'Performance and engagement focused',
         description:
             'Boost engagement, reduce response time, and scale your Instagram communication in a strategic and measurable way.',
         icon: <ChartLine className="size-6" />,
