@@ -14,8 +14,8 @@ import {
 import Link from 'next/link';
 
 const data = {
-    linkedinLink: 'https://www.linkedin.com/company/sendme',
-    githubLink: 'https://github.com/mvpblocks',
+    linkedinLink: 'https://www.linkedin.com/in/iago-pierre-53937b241/',
+    githubLink: 'https://github.com/pierrerrrr/sendmes',
     about: {
         history: '/company-history',
         team: '/meet-the-team',
